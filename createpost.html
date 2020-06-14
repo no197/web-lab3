@@ -40,21 +40,6 @@
         text-align: center;
       }
     </style>
-
-    <script>
-      function taoTin() {
-        var product_name = document.getElementById("txtProductName").value;
-        var price = document.getElementById("txtPrice").value;
-        var category = document.getElementById("txtCategory").value;
-        var image_link = document.getElementById("txtImageLink").value;
-        var product_link = document.getElementById("txtProductLink").value;
-        postData(
-          "http://localhost/lab3src/controllers/createpost.php",
-          "alert",
-          { product_name, price, category, image_link, product_link }
-        );
-      }
-    </script>
   </head>
   <body>
     <nav class="navbar navbar-inverse">
@@ -102,56 +87,63 @@
         <div id="alert"></div>
         <h2>Đăng tin miễn phí</h2>
         <br />
-        <div class="form-group">
-          <label for="txtProductName">Tên sản phẩm</label>
-          <input
-            type="text"
-            class="form-control"
-            id="txtProductName"
-            placeholder="Iphone 6 like new 99%"
-          />
-        </div>
-        <div class="form-group">
-          <label for="txtPrice">Giá bán</label>
-          <input
-            type="text"
-            class="form-control"
-            id="txtPrice"
-            placeholder="8000000"
-          />
-        </div>
-        <div class="form-group">
-          <label for="txtCategory">Loại</label>
-          <input
-            type="text"
-            class="form-control"
-            id="txtCategory"
-            placeholder="Camera,Phone,..."
-          />
-        </div>
-        <div class="form-group">
-          <label for="txtImageLink">Link hình ảnh</label>
-          <input
-            type="text"
-            class="form-control"
-            id="txtImageLink"
-            placeholder="http://static.lazada.vn/p/image-33784-1-product.jpg"
-          />
-        </div>
-        <div class="form-group">
-          <label for="txtImageLink">Link sản phẩm</label>
-          <input
-            type="text"
-            class="form-control"
-            id="txtProductLink"
-            placeholder="http://lazada.vn/product/iphone-8.html"
-          />
-        </div>
-        <div class="input-group-btn">
-          <button class="btn btn-danger" type="submit" onclick="taoTin()">
-            Đăng tin
-          </button>
-        </div>
+        <form action="controllers/createpost.php" method="POST">
+          <div class="form-group">
+            <label for="txtProductName">Tên sản phẩm</label>
+            <input
+              name="product_name"
+              type="text"
+              class="form-control"
+              id="txtProductName"
+              placeholder="Iphone 6 like new 99%"
+            />
+          </div>
+          <div class="form-group">
+            <label for="txtPrice">Giá bán</label>
+            <input
+              type="text"
+              name="price"
+              class="form-control"
+              id="txtPrice"
+              placeholder="8000000"
+            />
+          </div>
+          <div class="form-group">
+            <label for="txtCategory">Loại</label>
+            <input
+              type="text"
+              name="category"
+              class="form-control"
+              id="txtCategory"
+              placeholder="Camera,Phone,..."
+            />
+          </div>
+          <div class="form-group">
+            <label for="txtImageLink">Link hình ảnh</label>
+            <input
+              type="text"
+              name="image_link"
+              class="form-control"
+              id="txtImageLink"
+              placeholder="http://static.lazada.vn/p/image-33784-1-product.jpg"
+            />
+          </div>
+          <div class="form-group">
+            <label for="txtImageLink">Link sản phẩm</label>
+            <input
+              type="text"
+              name="product_link"
+              class="form-control"
+              id="txtProductLink"
+              placeholder="http://lazada.vn/product/iphone-8.html"
+            />
+          </div>
+          <div class="input-group-btn">
+            <button class="btn btn-danger" type="submit">
+              Đăng tin
+            </button>
+          </div>
+        </form>
         <br />
       </div>
     </div>
